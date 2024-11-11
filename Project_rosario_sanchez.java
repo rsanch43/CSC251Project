@@ -13,6 +13,10 @@ public class Project_rosario_sanchez {
       // ArrayList to store Policy objects
       ArrayList<Policy> policies = new ArrayList<>();
       
+      // Counters for smokers and non-smokers
+      int smokerCount = 0;
+      int nonSmokerCount = 0;
+      
       try {
          // Open the file for reading
          File file = new File("PolicyInformation.txt");
@@ -51,6 +55,13 @@ public class Project_rosario_sanchez {
             
             // Add the Policy object to the ArrayList
             policies.add(policy);
+            
+            // Add the smoker and non-smoker count based on the status
+            if (smokingStatus.equalsIgnoreCase("smoker")) {
+               smokerCount++;
+            } else {
+               nonSmokerCount++;
+            }
          }
          
          // Close the file
@@ -71,6 +82,10 @@ public class Project_rosario_sanchez {
             System.out.printf("Policy Price: $%.2f%n", policies.get(i).calculatePolicyPrice());
             System.out.println();
          }
+         
+         // Display the number of smokers and non-somkers
+         System.out.printf("The number of policies with a smoker is: %d%n", smokerCount);
+         System.out.printf("The number of policies with a non-smoker is: %d%n", nonSmokerCount);
       }
       
       catch(IOException ex) {
