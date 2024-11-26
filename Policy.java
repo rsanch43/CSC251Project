@@ -8,21 +8,21 @@ public class Policy
    private static int policyCount = 0;
    
    // Attributes
-   private String policyNumber;
+   private int policyNumber;
    private String providerName;
    private PolicyHolder holder;
 
    // No-argument constructor
    public Policy() 
    {
-      policyNumber = "";
+      policyNumber = 0;
       providerName = "";
       holder = new PolicyHolder();
       policyCount++;
     }
 
     // Constructor with parameters
-    public Policy(String policyNum, String provider, PolicyHolder holder) 
+    public Policy(int policyNum, String provider, PolicyHolder holder) 
     {
         policyNumber = policyNum;
         providerName = provider;
@@ -31,7 +31,7 @@ public class Policy
     }
 
     //Setters: Stores the value
-    public void setPolicyNumber(String policyNum) {
+    public void setPolicyNumber(int policyNum) {
          policyNumber = policyNum;
     }
     
@@ -45,7 +45,7 @@ public class Policy
    }
     
     // Getters: Returns
-    public String getPolicyNumber() {
+    public int getPolicyNumber() {
         return policyNumber;
     }
 
@@ -94,7 +94,7 @@ public class Policy
       return String.format("Policy Number: " + policyNumber +
                      "\nProvider Name: " + providerName +
                      holder.toString() +
-                     "\nPolicy Price: $%.2f\n", calculatePolicyPrice());                     
+                     "Policy Price: $%.2f\n", calculatePolicyPrice());                     
    }
    
 }
