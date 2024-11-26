@@ -4,6 +4,9 @@
 
 public class Policy 
 {
+   //Static field to track number of Policy objects
+   private static int policyCount = 0;
+   
    // Attributes
    private String policyNumber;
    private String providerName;
@@ -15,6 +18,7 @@ public class Policy
       policyNumber = "";
       providerName = "";
       holder = new PolicyHolder();
+      policyCount++;
     }
 
     // Constructor with parameters
@@ -23,6 +27,7 @@ public class Policy
         policyNumber = policyNum;
         providerName = provider;
         this.holder = new PolicyHolder(holder);
+        policyCount++;
     }
 
     //Setters: Stores the value
@@ -78,10 +83,16 @@ public class Policy
       return price;
    }
    
+   //Method to get the number of Policy objects
+   public static int getPolicyCount() 
+   {
+      return policyCount;
+   }
+   
    public String toString()
    {
       return String.format("Policy Number: " + policyNumber +
-                     "\nProvider Name: %s\n", providerName +
+                     "\nProvider Name: " + providerName +
                      holder.toString() +
                      "\nPolicy Price: $%.2f\n", calculatePolicyPrice());                     
    }
